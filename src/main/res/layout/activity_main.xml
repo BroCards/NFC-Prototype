@@ -21,117 +21,128 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/localInfo"
-            android:layout_weight="1">
-
-            <TextView
-                android:text="WiFi Information"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/yourInfo"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textAlignment="center" />
+                android:layout_height="195dp"
+                android:id="@+id/localInfo">
 
-            <TextView
-                android:text="[Wifi N/A]"
+                <TextView
+                    android:text="WiFi Information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/yourInfo"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:text="[Wifi N/A]"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Wifi"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/Domain"
+                    android:layout_centerHorizontal="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:text="[Domain N/A]"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/Domain"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:text="RNG Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RNGHead"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:text="abc2d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RNGText"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:textAlignment="center" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Wifi"
-                android:layout_marginTop="15dp"
-                android:layout_below="@+id/Domain"
-                android:layout_centerHorizontal="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textStyle="normal|bold"
-                android:textAlignment="center" />
+                android:layout_height="match_parent">
 
-            <TextView
-                android:text="[Domain Not Available]"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/Domain"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:textAlignment="center" />
+                <TextView
+                    android:text="Received Information"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ReceivedHead"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                    android:textAlignment="center" />
 
-            <TextView
-                android:text="RNG Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/RNGHead"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textAlignment="center" />
+                <TextView
+                    android:text="Partner Network Infomation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ReceivedIPHead"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                    android:textAlignment="center" />
 
-            <TextView
-                android:text="abc2d"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/RNGText"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                android:textAlignment="center" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ReceivedIP"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:text="[Wifi N/A]"
+                    android:textAlignment="center"
+                    android:textStyle="normal|bold" />
 
-            <Button
-                android:text="Refresh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/refresh"
-                style="@style/Widget.AppCompat.Button"
-                android:elevation="0dp"
-                android:textAlignment="center"
-                android:background="@android:color/holo_orange_dark" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ReceivedDomain"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textAlignment="center"
+                    android:text="[Domain N/A]" />
 
-        </LinearLayout>
+                <TextView
+                    android:text="Received Text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ReceivedRNGHead"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+                    android:textAlignment="center"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="normal|bold"
+                    android:textColor="@android:color/black" />
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ReceivedRNG"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    android:text="NFC NOT ON"
+                    android:textAlignment="center" />
 
-            <TextView
-                android:text="Received Information"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ReceivedHead"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="Partner Network Infomation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ReceivedIPHead"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                android:textAlignment="center" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ReceivedIP"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ReceivedDomain"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textAlignment="center" />
-
-            <TextView
-                android:text="Received Text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ReceivedRNGHead"
-                android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                android:textAlignment="center" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ReceivedRNG"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+                <Button
+                    android:text="Refresh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/refresh"
+                    style="@style/Widget.AppCompat.Button"
+                    android:elevation="0dp"
+                    android:textAlignment="center"
+                    android:background="@android:color/holo_orange_dark" />
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
