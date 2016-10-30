@@ -45,8 +45,8 @@
                     android:layout_below="@+id/Domain"
                     android:layout_centerHorizontal="true"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:textStyle="normal|bold"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textStyle="normal|bold" />
 
                 <TextView
                     android:text="[Domain N/A]"
@@ -130,8 +130,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/ReceivedRNG"
                     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                    android:text="NFC NOT ON"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:text="[NFC N/A]" />
 
                 <Button
                     android:text="Refresh"
