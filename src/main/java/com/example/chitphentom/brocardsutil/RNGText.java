@@ -1,4 +1,4 @@
-package com.example.chitphentom.nfcprototype;
+package com.example.chitphentom.brocardsutil;
 
 /**
  * Created by Chitphentom on 10/30/2016 AD.
@@ -6,7 +6,7 @@ package com.example.chitphentom.nfcprototype;
 
 import java.security.SecureRandom;
 
-class RNGText {
+public class RNGText {
     private static final String Pool = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     private static SecureRandom rnd = new SecureRandom();
 
