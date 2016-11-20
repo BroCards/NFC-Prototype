@@ -8,9 +8,13 @@ import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintStream;
 import java.net.HttpURLConnection;
+import java.net.Socket;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Locale;
@@ -24,80 +28,47 @@ import java.util.Scanner;
  */
 
 public class Client {
-    private URL url;
     private boolean posted = false;
     private InputStream inputStream;
+    private String destIP;
+    private int port;
+    private JSONObject responseObj;
 
-    Client (int destinationIP, int port) {
-        try {
-            this.url = new URL("http://" + num_to_url(destinationIP, port) + "/");
-        } catch (Exception e) {
-            this.url = null;
-        }
+    Client (String destinationIP, int port) {
+        destIP = destinationIP;
+        this.port = port;
     }
 
-    Client (String url) {
+    public boolean postData(String str) {
+        Socket socket = null;
         try {
-            this.url = new URL(url);
-        } catch (Exception e) {
-            this.url = null;
-        }
-    }
+            socket = new Socket(destIP, port);
 
-    public boolean addData() {
+            PrintStream out = new PrintStream(socket.getOutputStream());
+            out.print(str);
+
+            // response
+            JsonReader reader = new JsonReader(new InputStreamReader(socket.getInputStream()));
+
+            // read!
+            reader.beginObject();
+
+            while (reader.hasNext()) {
+                String name = reader.nextName();
+                if (name.equals("Status")) {
+                    return (reader.nextString().equals("Connected"));
+                }
+            }
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return false;
     }
 
-    public boolean post(String msg) {
-        if (this.url == null) return false;
 
-        URLConnection connection;
-
-        try {
-            connection = url.openConnection();
-        } catch (Exception e) {
-            return false;
-        }
-
-        HttpURLConnection httpPost = (HttpURLConnection) connection;
-
-        try {
-            httpPost.setDoOutput(true);
-            httpPost.setChunkedStreamingMode(0);
-
-            httpPost.setRequestMethod("POST");
-            httpPost.setRequestProperty("Content-type", "application/json");
-
-            OutputStream out = new BufferedOutputStream(httpPost.getOutputStream());
-
-            // post here
-            out.write(msg.getBytes());
-
-            // get response
-            inputStream = new BufferedInputStream(httpPost.getInputStream());
-
-            posted = true;
-        } catch (Exception e) {
-            // fail, return false
-            httpPost.disconnect();
-            return false;
-        } finally {
-            // disconnect
-            httpPost.disconnect();
-        }
-
-
-        return true;
-    }
-
-    public String getResponse() {
-        if (posted) {
-            Scanner s = new Scanner(inputStream).useDelimiter("\\A");
-            return s.hasNext() ? s.next() : "";
-        } else {
-            return null;
-        }
-    }
 
 
     /** Utilities function(s):
